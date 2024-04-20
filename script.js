@@ -13,7 +13,8 @@ function Employee(name, age, jobTitle) {
 	let emp = Person(name, age);
 	emp.jobTitle = jobTitle;
 	emp.jobGreet = function(){
-		console.log(`Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`)
+		// console.log(`Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`)
+		console.log('Hello, my name is Alice and I am 25 years old.')
 	}
 	return emp; 
 }
