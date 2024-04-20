@@ -1,21 +1,28 @@
 // complete this js code
-function Person(name, age) {
-	let p = {}
-	p.name = name;
-	p.age = age;
-	p.greet = function(){
+let personPropObj = {
+	greet(){
 		console.log(`Hello, my name is ${this.name}, I am ${this.age} years old.`)
 	}
+}
+let employeePropObj = {
+	jobGreet(){
+		console.log(`Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`)
+	}
+}
+Object.setPrototypeOf(employeePropObj, personPropObj)
+
+function Person(name, age) {
+	let p = Object.create(personPropObj)
+	p.name = name;
+	p.age = age;
 	return p;
 }
 
 function Employee(name, age, jobTitle) {
 	let emp = Person(name, age);
 	emp.jobTitle = jobTitle;
-	emp.jobGreet = function(){
-		// console.log(`Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`)
-		console.log('Hello, my name is Alice and I am 25 years old.')
-	}
+	Object.setPrototypeOf(emp, employeePropObj)
+	
 	return emp; 
 }
 // let p1 = Person("Alice", 25)
